@@ -6,9 +6,9 @@ import Admin from "./pages/Admin";
 import AuthProvider from "./context/AuthContext";
 import EmployeeList from "./pages/EmployeeList";
 import CreateEmployee from "./pages/CreateEmployee";
-import Protected from "./context/Protected";  // Your Protected wrapper
+import Protected from "./context/Protected"; 
 
-// Define your router with nested routes
+
 const router = createBrowserRouter([
   {
     element: (
@@ -16,30 +16,30 @@ const router = createBrowserRouter([
         <HomeLayout />
       </AuthProvider>
     ),
-    path: "",  // Base path
+    path: "", 
     children: [
       {
-        element: <Auth />,  // Login page route
-        index: true,  // Default route when app is loaded
+        element: <Auth />,  
+        index: true,  
       },
       {
-        element: <Protected />,  // Protected wrapper for authenticated routes
+        element: <Protected />,  
         children: [
           {
             element: <Admin />,
-            path: "admin",  // Protected admin page
+            path: "admin", 
           },
           {
             element: <CreateEmployee />,
-            path: "create",  // Protected create employee page
+            path: "create",  
           },
           {
             element: <EmployeeList />,
-            path: "employees",  // Protected employee list page
+            path: "employees",  
           },
           {
             element: <CreateEmployee />,
-            path: "edit/:id",  // Protected edit employee page
+            path: "edit/:id", 
           },
         ],
       },
